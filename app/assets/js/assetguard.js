@@ -1495,9 +1495,16 @@ class AssetGuard extends EventEmitter {
         ? obPath.substring(0, obPath.toLowerCase().lastIndexOf(".pack.xz"))
         : obPath;
       if (!AssetGuard._validateLocal(validationPath, "MD5", artifact.hash)) {
-        asize += artifact.size * 1;
-        alist.push(artifact);
-        if (validationPath !== obPath) this.extractQueue.push(obPath);
+        // TODO: Fix Journeymap waypoints
+        if(!validationPath.endsWith(".cfg")){
+          asize += artifact.size * 1;
+          alist.push(artifact);
+          if (validationPath !== obPath) this.extractQueue.push(obPath);
+        }
+        else{
+          var filename = path.basename(validationPath);
+          console.log("Wanted to reinstall: %s", filename);
+        }
       }
       //Recursively process the submodules then combine the results.
       if (ob.getSubModules() != null) {
