@@ -735,7 +735,7 @@ function dlAsync(login = true) {
         );
         setLaunchDetails("Launching game..");
         const SERVER_JOINED_REGEX = new RegExp(
-          `\\[.+\\]: \\[CHAT\\] ${authUser.displayName} has joined!`
+					`\\[\\CHAT] Welcome to Mystical Machines,`
         );
         const SERVER_LEAVE_REGEX = new RegExp(
           `\\[.+\\]: \\[CHAT\\] ${authUser.displayName} has left!`
