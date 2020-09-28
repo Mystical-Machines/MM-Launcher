@@ -606,60 +606,33 @@ class JavaGuard extends EventEmitter {
       fs.exists(scanDir, (e) => {
         let res = new Set();
 
-        if (e) {
-          fs.readdir(scanDir, (err, files) => {
-            if (err) {
-              resolve(res);
-              console.log(err);
-            } else {
-              let pathsDone = 0;
+    /**
+     * Scan a directory for root JVM folders.
+     * 
+     * @param {string} scanDir The directory to scan.
+     * @returns {Promise.<Set.<string>>} A promise which resolves to a set of the discovered
+     * root JVM folders.
+     */
+    static async _scanFileSystem(scanDir){
 
-              for (let i = 0; i < files.length; i++) {
-                const combinedPath = path.join(scanDir, files[i]);
-                const execPath = JavaGuard.javaExecFromRoot(combinedPath);
+        let res = new Set()
 
-                fs.exists(execPath, (v) => {
-                  if (v) {
-                    res.add(combinedPath);
-                  }
+        if(await fs.pathExists(scanDir)) {
 
-                  ++pathsDone;
+            const files = await fs.readdir(scanDir)
+            for(let i=0; i<files.length; i++){
 
-                  if (pathsDone === files.length) {
-                    resolve(res);
-                  }
-                });
-              }
-              if (pathsDone === files.length) {
-                resolve(res);
-              }
+                const combinedPath = path.join(scanDir, files[i])
+                const execPath = JavaGuard.javaExecFromRoot(combinedPath)
+
+                if(await fs.pathExists(execPath)) {
+                    res.add(combinedPath)
+                }
             }
-          });
-        } else {
-          resolve(res);
         }
-      });
-    });
-  }
 
-  /**
-   *
-   * @param {Set.<string>} rootSet A set of JVM root strings to validate.
-   * @returns {Promise.<Object[]>} A promise which resolves to an array of meta objects
-   * for each valid JVM root directory.
-   */
-  async _validateJavaRootSet(rootSet) {
-    const rootArr = Array.from(rootSet);
-    const validArr = [];
+        return res
 
-    for (let i = 0; i < rootArr.length; i++) {
-      const execPath = JavaGuard.javaExecFromRoot(rootArr[i]);
-      const metaOb = await this._validateJavaBinary(execPath);
-
-      if (metaOb.valid) {
-        metaOb.execPath = execPath;
-        validArr.push(metaOb);
-      }
     }
 
     return validArr;
@@ -755,12 +728,16 @@ class JavaGuard extends EventEmitter {
     let pathArr = await this._validateJavaRootSet(uberSet);
     pathArr = JavaGuard._sortValidJavaArray(pathArr);
 
-    if (pathArr.length > 0) {
-      return pathArr[0].execPath;
-    } else {
-      return null;
-    }
-  }
+        // Get possible paths from the registry.
+        let pathSet1 = await JavaGuard._scanRegistry()
+        if(pathSet1.size === 0){
+            // Do a manual file system scan of program files.
+            pathSet1 = new Set([
+                ...pathSet1,
+                ...(await JavaGuard._scanFileSystem('C:\\Program Files\\Java')),
+                ...(await JavaGuard._scanFileSystem('C:\\Program Files\\AdoptOpenJDK'))
+            ])
+        }
 
   /**
    * Attempts to find a valid x64 installation of Java on MacOS.
