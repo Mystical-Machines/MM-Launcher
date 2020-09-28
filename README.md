@@ -10,7 +10,7 @@
 
 ## Downloads
 
-You can download from [GitHub Releases](https://github.com/dscalzi/HeliosLauncher/releases)
+You can download from [GitHub Releases](/releases)
 
 ## Development (Mystical Machines fork)
 
@@ -26,13 +26,13 @@ Coming Soon!
 
 **Supported Platforms**
 
-If you download from the [Releases](https://github.com/Mystical Machines-Network/HeliosLauncher/releases) tab, select the installer for your system.
+If you download from the [Releases](/releases) tab, select the installer for your system.
 
 | Platform    | File                                     |
 | ----------- | ---------------------------------------- |
-| Windows x64 | `helioslauncher-setup-VERSION.exe`       |
-| macOS       | `helioslauncher-VERSION.dmg`             |
-| Linux x64   | `helioslauncher-VERSION-x86_64.AppImage` |
+| Windows x64 | `Mystical-Machines-Launcher-Setup-VERSION.exe`       |
+| macOS       | `Mystical-Machines-Launcher-VERSION.dmg`             |
+| Linux x64   | `Mystical-Machines-Launcher-VERSION.AppImage` |
 
 ## Console
 
@@ -62,7 +62,7 @@ This project is forked from HeliosLauncher, a project by dscalzi for the server 
 
 - [Project Link][original]
 - [Original Project Wiki][wiki]
-- [Aventium Softworks Discord][discord2]
+- [Aventium Softworks Discord](https://discord.gg/zNWUXdt)
 
 [discord]: https://discord.mysticalmachines.com "Mystical Machines Discord"
 [discord]: https://discord.gg/zNWUXdt "Original Project Discord"
@@ -173,12 +173,12 @@ We reserve the right to update these conditions at any time, please check back p
 
 ---
 
-## Resources
+<!--## Resources-->
 
-- [Wiki][wiki]
+<!--- [Wiki][wiki]
 - [Nebula (Create Distribution.json)][nebula]
 - [v2 Rewrite Branch (WIP)][v2branch]
-
+-->
 The best way to contact the developers is on Discord.
 
 [![discord](https://discordapp.com/api/guilds/211524927831015424/embed.png?style=banner3)][discord]
