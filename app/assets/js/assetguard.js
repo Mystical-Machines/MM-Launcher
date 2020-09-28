@@ -1269,7 +1269,7 @@ class AssetGuard extends EventEmitter {
     const self = this;
     return new Promise((resolve, reject) => {
       //Asset constants
-      const resourceURL = "http://resources.download.minecraft.net/";
+      const resourceURL = "https://resources.download.minecraft.net/";
       const localPath = path.join(self.commonPath, "assets");
       const objectPath = path.join(localPath, "objects");
 
