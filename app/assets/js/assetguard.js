@@ -604,7 +604,12 @@ class JavaGuard extends EventEmitter {
   static _scanFileSystem(scanDir) {
     return new Promise((resolve, reject) => {
       fs.exists(scanDir, (e) => {
-        let res = new Set();
+		let res = new Set();
+	  }
+	  )
+	}
+	)
+}
 
     /**
      * Scan a directory for root JVM folders.
@@ -629,14 +634,11 @@ class JavaGuard extends EventEmitter {
                     res.add(combinedPath)
                 }
             }
-        }
+		}
 
         return res
 
     }
-
-    return validArr;
-  }
 
   /**
    * Sort an array of JVM meta objects. Best candidates are placed before all others.
@@ -737,7 +739,8 @@ class JavaGuard extends EventEmitter {
                 ...(await JavaGuard._scanFileSystem('C:\\Program Files\\Java')),
                 ...(await JavaGuard._scanFileSystem('C:\\Program Files\\AdoptOpenJDK'))
             ])
-        }
+		}
+	}
 
   /**
    * Attempts to find a valid x64 installation of Java on MacOS.
