@@ -121,6 +121,10 @@ function showMainUI(data) {
         }
       }
     }
+    
+    if(!ConfigManager.oneTimePopup()){
+      $("#popupContainer").fadeIn(1000);
+    }
 
     setTimeout(() => {
       $("#loadingContainer").fadeOut(500, () => {
