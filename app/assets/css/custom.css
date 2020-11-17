@@ -29,12 +29,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*justify-content: space-between;*/
     width: 400px;
-    /*height: 35%;*/
     box-sizing: border-box;
     padding: 15px 0px;
-    /* background-color: #424242; */
     text-align: center;
   }
   
