@@ -596,7 +596,7 @@ exports.pullRemote = function () {
   return new Promise((resolve, reject) => {
     const opts = {
       url: constants.DISTRIBUTION_URL,
-      timeout: 7500,
+      timeout: 15000,
     };
     const distroDest = path.join(
       ConfigManager.getLauncherDirectory(),
