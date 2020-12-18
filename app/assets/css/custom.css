@@ -1,0 +1,132 @@
+/* Custom CSS so custom implementations dont break when launcher.css is updated*/
+
+/*******************************************************************************
+ *                                                                             *
+ * Popup View (onetimepopup.ejs)                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+/* * *
+* Popup View (Main Content)
+* * */
+
+/* Popup container, placed over the main div. */
+#popupContainer {
+    position: absolute;
+    z-index: 500;
+    top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 22px);
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Main Popup content. */
+  #popupContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    box-sizing: border-box;
+    padding: 15px 0px;
+    text-align: center;
+  }
+  
+  /* Main Popup content anchor styles. */
+  #popupContent a,
+
+  #popupContent a:hover,
+  #popupContent a:focus,
+
+  #popupContent a:active,
+
+  
+  /* Add spacing between Popup content elements. */
+  #popupContent > *:first-child {
+    margin-top: 0px !important;
+  }
+  #popupContent > *:last-child {
+    margin-bottom: 0px !important;
+  }
+  #popupContent > * {
+    margin: 8px 0px;
+  }
+  
+  /* Popup title styles. */
+  #popupTitle {
+    font-family: "Avenir Medium";
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    -webkit-user-select: initial;
+  }
+  
+  /* Popup description styles. */
+  #popupDesc {
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-user-select: initial;
+  }
+  
+  /* Div which contains action buttons. */
+  #popupActionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Popup acknowledge button styles. */
+  #popupAcknowledge {
+    background: none;
+    border: 1px solid #ffffff;
+    color: white;
+    font-family: "Avenir Medium";
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 2px;
+    padding: 0px 8.1px;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+  #popupAcknowledge:hover,
+  #popupAcknowledge:focus {
+    box-shadow: 0px 0px 10px 0px #fff;
+    outline: none;
+  }
+  #popupAcknowledge:active {
+    border-color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
+  }
+  
+
+/* * *
+* Popup Setting
+* * */
+
+.popupSettingFieldContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .popupSettingFieldLeft {
+    display: flex;
+    flex-direction: column;
+  }
+  .popupSettingFieldTitle {
+    font-size: 16px;
+    -webkit-user-select: initial;
+    font-family: "Avenir Medium";
+    color: rgba(255, 255, 255, 0.95);
+  }
+  .popupSettingFieldDesc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-top: 5px;
+  }
+  

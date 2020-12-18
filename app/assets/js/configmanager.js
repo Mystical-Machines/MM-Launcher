@@ -142,6 +142,7 @@ const DEFAULT_CONFIG = {
       resWidth: 1280,
       resHeight: 720,
       fullscreen: false,
+      hasSeenPopup: false,
       autoConnect: true,
       launchDetached: true,
       consoleOnLaunch: false,
@@ -711,12 +712,29 @@ exports.getAutoConnect = function (def = false) {
 };
 
 /**
+ * Check if the user has seen the initial popup.
+ *
+ * @param {boolean} def Optional. If true, the default value will be returned.
+ * @returns {boolean} Whether or not the user has seen the popup.
+ */
+
+exports.oneTimePopup = function (def = false) {
+  return !def
+    ? config.settings.game.hasSeenPopup
+    : DEFAULT_CONFIG.settings.game.hasSeenPopup;
+};
+
+/**
  * Change the status of whether or not the game should auto connect to servers.
  *
  * @param {boolean} autoConnect Whether or not the game should auto connect to servers.
  */
 exports.setAutoConnect = function (autoConnect) {
   config.settings.game.autoConnect = autoConnect;
+};
+
+exports.setHasSeenPopup = function (hasSeenPopup) {
+  config.settings.game.hasSeenPopup = hasSeenPopup;
 };
 
 /**

@@ -1,0 +1,24 @@
+<div id="popupContainer" style="display: none;">
+	<div id="popupContent">
+		<span id="popupTitle">Thanks for downloading the <%=APP_DISPLAY_NAME%>!</span>
+		<span id="popupDesc">This launcher has the ability to auto-login the player into the server when the launcher is fully loaded.<br><br> Choose below if you want to enable this:</span>
+        
+        <div class="popupSettingFieldContainer">
+            <div class="popupSettingFieldLeft">
+                <span class="popupSettingFieldTitle">Automatically connect to the server on launch.</span>
+            </div>
+            <div class="popupSettingFieldRight">
+                <label class="toggleSwitch">
+                    <input type="checkbox" cValue="AutoConnect">
+                    <span class="toggleSwitchSlider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div id="popupActionContainer">
+			<button id="popupAcknowledge" cValue="HasSeenPopup">Continue</button>
+		</div>
+    </div>
+    
+	<script src="./assets/js/scripts/onetimepopup.js"></script>
+</div>
