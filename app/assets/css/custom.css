@@ -146,7 +146,7 @@
   display: inline-flex;
 }
 
-#MM_server_selection_button {
+#mm_modpack_selection_button {
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: bold;
@@ -159,11 +159,11 @@
   padding: 0px;
   transition: 0.25s ease;
 }
-#MM_server_selection_button:hover,
-#MM_server_selection_button:focus {
+#mm_modpack_selection_button:hover,
+#mm_modpack_selection_button:focus {
   text-shadow: 0px 0px 15px #fff, 0px 0px 15px #fff, 0px 0px 15px #fff;
 }
-#MM_server_selection_button:active {
+#mm_modpack_selection_button:active {
   color: #c7c7c7;
   text-shadow: 0px 0px 15px #c7c7c7, 0px 0px 15px #c7c7c7, 0px 0px 15px #c7c7c7;
 }
